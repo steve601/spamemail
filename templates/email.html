@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>email classification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            background-image: url("{{url_for('static',filename = 'twit2.PNG')}}");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #87CEEB;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 500px;
+            max-width: 100%;
+        }
+        h1 {
+            text-align: center;
+            color: black;
+        }
+        p {
+            color: black;
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: 95%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: black;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 4px;
+            background-color: #f0f0f0;
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Spam Email Detection</h1>
+        <p>Email spam, also known as junk email, refers to <b>unsolicited email messages</b>, usually sent in bulk to a large list of recipients. Spam can be sent by real humans,
+            this application aims at detecting such kind of emails and classify whether its spamor legit.</p>
+        <form method="post" action="/classify">
+            <textarea name="mail" placeholder="Type email text here...">{{ corpus }}</textarea>
+            <button type="submit">Detect</button>
+        </form>
+        <div id="result" class="result">
+           <p> {{ text }} </p>
+        </div>
+    </div>
+</body>
+</html>
